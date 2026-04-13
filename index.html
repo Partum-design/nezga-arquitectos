@@ -1,293 +1,423 @@
-﻿<!DOCTYPE html>
-<html lang="es-MX">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEZGA ARQUITECTOS | Arquitectura, Ingeniería y Construcción de Alto Nivel</title>
-  <meta name="description" content="NEZGA ARQUITECTOS desarrolla proyectos ejecutables con precisión técnica: arquitectura, ingeniería y construcción en Ciudad de México, Toluca y Valle de Bravo.">
+  <title>NEZGA Arquitectos | Arquitectura, Ingenieria y Construccion</title>
+  <meta name="description" content="NEZGA Arquitectos: empresa especializada en diseno, ingenieria y construccion. Proyectos completos con precision tecnica y calidad constructiva en Ciudad de Mexico, Toluca y Valle de Bravo.">
+  <meta name="keywords" content="arquitectura, ingenieria, construccion, diseno, NEZGA, Ciudad de Mexico, Toluca, Valle de Bravo">
+  <meta name="author" content="NEZGA Arquitectos">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon/favicon.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- StringTune Library -->
+  <script src="https://unpkg.com/@fiddle-digital/string-tune@1.1.55/dist/index.js"></script>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
-    <div class="container header-shell">
-      <a class="brand" href="/" aria-label="NEZGA ARQUITECTOS inicio">
-        <img src="assets/img/logo-nezga-negativo.png" alt="Logotipo NEZGA ARQUITECTOS" class="brand-logo">
-      </a>
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="/" class="header__logo" aria-label="NEZGA Arquitectos - Inicio">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos Logo" width="315" height="70">
+        </a>
 
-      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+        <!-- Desktop Navigation -->
+        <nav class="header__nav" id="desktopNav" aria-label="Navegacion principal">
+          <a href="/" class="active">Inicio</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/contacto">Contacto</a>
+        </nav>
 
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a class="nav-link active" href="/">Inicio</a>
-        <a class="nav-link" href="/servicios">Servicios</a>
-        <a class="nav-link" href="/contacto">Contacto</a>
-      </nav>
+        <!-- Header CTA -->
+        <a href="/contacto" class="btn btn--primary header__cta">
+          Hablemos de tu proyecto <i class="fas fa-arrow-right"></i>
+        </a>
 
-      <a href="/contacto" class="btn btn-main desktop-only">Hablemos de tu proyecto</a>
+        <!-- Hamburger Menu -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero-home">
-      <div class="container">
-        <article class="hero-card" data-anim="clip">
-          <video class="hero-bg" autoplay muted loop playsinline preload="metadata" aria-label="Video de fondo de arquitectura en interior">
-            <source src="videos/1116935_Man_Indoor_3840x2160.mp4" type="video/mp4">
-          </video>
-          <div class="hero-overlay"></div>
-          <div class="hero-content hero-centered">
-            <p class="hero-kicker">NEZGA ARQUITECTOS · CDMX · Toluca · Valle de Bravo</p>
-            <h1>Diseñamos, proyectamos y construimos espacios que funcionan.</h1>
-            <p>Arquitectura, ingeniería y construcción con precisión técnica, estructura operativa y ejecución profesional.</p>
-            <div class="hero-actions">
-              <a href="/contacto" class="btn btn-main">Hablemos de tu proyecto</a>
-              <a href="/servicios" class="btn btn-ghost">Ver servicios</a>
-            </div>
-          </div>
-          <div class="hero-metrics">
-            <div>
-              <strong data-counter="8">0+</strong>
-              <span>Proyectos desarrollados</span>
-            </div>
-            <div>
-              <strong>100%</strong>
-              <span>Control técnico en ejecución</span>
-            </div>
-            <div>
-              <strong>3</strong>
-              <span>Zonas de operación activa</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="ticker-wrap" aria-label="Especialidades">
-      <div class="ticker-track">
-        <span>DISEÑO ARQUITECTÓNICO</span>
-        <span>INGENIERÍA ESTRUCTURAL</span>
-        <span>EJECUCIÓN DE OBRA</span>
-        <span>SUPERVISIÓN TÉCNICA</span>
-        <span>REMODELACIONES</span>
-        <span>DISEÑO ARQUITECTÓNICO</span>
-        <span>INGENIERÍA ESTRUCTURAL</span>
-        <span>EJECUCIÓN DE OBRA</span>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container split-feature">
-        <div class="feature-media" data-anim="left">
-          <img src="img/1150296.jpg" alt="Interior arquitectónico de lujo">
-        </div>
-        <div class="feature-copy" data-anim="up">
-          <p class="section-tag">Quiénes somos</p>
-          <h2>Empresa especializada en diseño, planificación y construcción con enfoque en funcionalidad, estética y calidad.</h2>
-          <p>Trabajamos con una lógica técnico-operativa: levantamos información, definimos estrategia, proyectamos con viabilidad real y ejecutamos con trazabilidad en obra.</p>
-          <div class="bullet-grid">
-            <article>
-              <i class="fa-solid fa-ruler-combined"></i>
-              <h3>Precisión técnica</h3>
-            </article>
-            <article>
-              <i class="fa-solid fa-pen-ruler"></i>
-              <h3>Diseño funcional</h3>
-            </article>
-            <article>
-              <i class="fa-solid fa-helmet-safety"></i>
-              <h3>Ejecución completa</h3>
-            </article>
-            <article>
-              <i class="fa-solid fa-layer-group"></i>
-              <h3>Calidad constructiva</h3>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section projects-section">
-      <div class="container">
-        <div class="section-head" data-anim="up">
-          <p class="section-tag">Proyectos destacados</p>
-          <h2>Composición, técnica y ejecución en cada escala</h2>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card" data-anim="up" data-speed="0.08">
-            <img src="img/120.jpg" alt="Fachada residencial contemporánea">
-            <div class="project-meta">
-              <h3>Residencia de autor</h3>
-              <p>Diseño y construcción integral</p>
-            </div>
-          </article>
-          <article class="project-card" data-anim="up" data-speed="0.12">
-            <img src="img/12114.jpg" alt="Proyecto arquitectónico de concreto y madera">
-            <div class="project-meta">
-              <h3>Reconfiguración estructural</h3>
-              <p>Remodelación y reforzamiento</p>
-            </div>
-          </article>
-          <article class="project-card" data-anim="up" data-speed="0.06">
-            <img src="img/14519.jpg" alt="Villa moderna con iluminación cálida">
-            <div class="project-meta">
-              <h3>Vivienda premium</h3>
-              <p>Planeación ejecutiva y obra</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section material-gallery">
-      <div class="container">
-        <div class="section-head" data-anim="up">
-          <p class="section-tag">Visuales de proyecto</p>
-          <h2>Diseño arquitectónico con lenguaje contemporáneo y enfoque constructivo</h2>
-        </div>
-        <div class="gallery-grid">
-          <article data-anim="left"><img src="img/17811.jpg" alt="Residencia moderna con jardín frontal"></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-preview section-light">
-      <div class="container">
-        <div class="section-head" data-anim="up">
-          <p class="section-tag">Servicios principales</p>
-          <h2>Soluciones integrales para proyectos exigentes</h2>
-        </div>
-        <div class="service-cards">
-          <article class="service-item" data-anim="left">
-            <i class="fa-solid fa-building"></i>
-            <h3>Diseño y construcción</h3>
-            <p>Desde concepto y ejecutivo hasta entrega final con control de calidad.</p>
-          </article>
-          <article class="service-item" data-anim="up">
-            <i class="fa-solid fa-house-chimney-window"></i>
-            <h3>Remodelaciones</h3>
-            <p>Intervenciones con alto criterio técnico para optimizar espacios existentes.</p>
-          </article>
-          <article class="service-item" data-anim="up">
-            <i class="fa-solid fa-drafting-compass"></i>
-            <h3>Ingeniería estructural</h3>
-            <p>Análisis y diseño para seguridad, eficiencia y durabilidad de la obra.</p>
-          </article>
-          <article class="service-item" data-anim="right">
-            <i class="fa-solid fa-clipboard-check"></i>
-            <h3>Supervisión de obra</h3>
-            <p>Seguimiento técnico, control de procesos y cumplimiento de especificaciones.</p>
-          </article>
-        </div>
-        <div class="section-actions" data-anim="up">
-          <a href="/servicios" class="btn btn-main">Explorar todos los servicios</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process-section">
-      <div class="container">
-        <div class="section-head" data-anim="up">
-          <p class="section-tag">Proceso</p>
-          <h2>Diseño · Planeación · Construcción</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-step" data-anim="left">
-            <span>01</span>
-            <h3>Diseño</h3>
-            <p>Diagnóstico, concepto, anteproyecto y visualización de soluciones funcionales.</p>
-          </article>
-          <article class="timeline-step" data-anim="up">
-            <span>02</span>
-            <h3>Planeación</h3>
-            <p>Ingenierías, presupuesto, cronograma y estrategia operativa de ejecución.</p>
-          </article>
-          <article class="timeline-step" data-anim="right">
-            <span>03</span>
-            <h3>Construcción</h3>
-            <p>Supervisión continua, control de calidad y entregables técnicos de cierre.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section testimonial-section section-light">
-      <div class="container testimonial-layout">
-        <article class="quote-card" data-anim="left">
-          <p>"Su nivel técnico y de control en obra fue clave para cumplir tiempos y calidad. No solo diseñaron; realmente ejecutaron."</p>
-          <h3>Cliente residencial · Valle de Bravo</h3>
-        </article>
-        <article class="zones-card" data-anim="right">
-          <h3>Cobertura operativa</h3>
-          <ul>
-            <li><i class="fa-solid fa-location-dot"></i> Ciudad de México</li>
-            <li><i class="fa-solid fa-location-dot"></i> Toluca</li>
-            <li><i class="fa-solid fa-location-dot"></i> Valle de Bravo</li>
-          </ul>
-          <a class="btn btn-ghost" href="/contacto">Iniciar proyecto</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section final-cta">
-      <div class="container final-cta-wrap" data-anim="clip">
-        <h2>Más que diseño: ejecución real con criterio técnico.</h2>
-        <p>Conversemos sobre alcance, tiempos y soluciones para tu proyecto.</p>
-        <a href="/contacto" class="btn btn-main">Hablemos de tu proyecto</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img src="assets/img/logo-nezga-negativo.png" alt="NEZGA ARQUITECTOS" class="footer-logo">
-        <p>Estudio técnico de arquitectura, ingeniería y construcción. Planeación sólida, control del proceso y ejecución profesional.</p>
-      </div>
-      <div>
-        <h3>Navegación</h3>
-        <a href="/">Inicio</a>
-        <a href="/servicios">Servicios</a>
-        <a href="/contacto">Contacto</a>
-      </div>
-      <div>
-        <h3>Servicios Clave</h3>
-        <p>Diseño y construcción<br>Remodelaciones<br>Ingeniería estructural<br>Supervisión de obra</p>
-      </div>
-      <div>
-        <h3>Contacto Directo</h3>
-        <a href="tel:+525554504445">55 5450 4445</a>
-        <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
-        <a href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </div>
-      <div>
-        <h3>Zonas</h3>
-        <p>Ciudad de México<br>Toluca<br>Valle de Bravo</p>
-        <h3>Redes</h3>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu__overlay" id="mobileOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu movil">
+    <a href="/">Inicio</a>
+    <a href="/servicios">Servicios</a>
+    <a href="/contacto">Contacto</a>
+    <div class="mobile-menu__cta">
+      <a href="/contacto" class="btn btn--primary" style="width:100%; margin-top:1rem;">Hablemos de tu proyecto</a>
     </div>
-    <div class="container legal-row">
-      <small>© <span data-year></span> NEZGA ARQUITECTOS</small>
-      <small>Desarrollado por: <a href="https://partumdesign.com.mx" target="_blank" rel="noopener noreferrer">Partum Design</a></small>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT WRAPPER (for footer shifting effect)
+       ============================================================ -->
+  <div class="main-content">
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <!-- Video Background -->
+      <div class="hero__video-wrap">
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="img/1150296.jpg">
+          <source src="videos/1116935_Man_Indoor_3840x2160.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <!-- Hero Content -->
+      <div class="container">
+        <div class="hero__content">
+          <span class="section-label section-label--light reveal">Arquitectura + Ingenieria + Construccion</span>
+          <h1 class="hero__title" string="progress" string-enter-vp="top" string-exit-vp="bottom">
+            <span string="split" string-split="word">Disenamos, proyectamos y construimos espacios que funcionan.</span>
+          </h1>
+          <p class="hero__subtitle reveal" style="transition-delay: 0.2s;">
+            Arquitectura, ingenieria y construccion con precision y ejecucion profesional.
+          </p>
+          <div class="hero__actions reveal" style="transition-delay: 0.4s;">
+            <a href="/contacto" class="btn btn--primary" string="magnetic" string-radius="800" string-strength="0.1">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
+            <a href="/servicios" class="btn btn--outline" string="magnetic" string-radius="800" string-strength="0.1">Ver servicios <i class="fas fa-chevron-down"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero__scroll">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUIENES SOMOS
+         ============================================================ -->
+    <section class="about section-padding" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <!-- Image -->
+          <div class="about__image-wrap st-reveal" string string-repeat>
+            <img src="img/14519.jpg" alt="Arquitecto trabajando en planos de diseno" loading="lazy">
+          </div>
+          <!-- Text -->
+          <div class="about__text">
+            <span class="section-label reveal">Quienes somos</span>
+            <h2 class="reveal" style="transition-delay: 0.1s;">Precision, estructura y resultados construidos</h2>
+            <p class="reveal" string="progress" string-enter-vp="top" string-exit-vp="bottom" style="transition-delay: 0.2s;">
+              <span string="split" string-split="word">Empresa especializada en diseno, planificacion y construccion con enfoque en funcionalidad, estetica y calidad. No vendemos solo ideas: entregamos proyectos completos ejecutables, soluciones integrales y control total del proceso constructivo.</span>
+            </p>
+            <p class="reveal" style="transition-delay: 0.3s;">
+              Desde Ciudad de Mexico, Toluca y Valle de Bravo, trabajamos con la precision tecnica
+              y confianza que cada proyecto exige.
+            </p>
+            <a href="/servicios" class="btn btn--outline-dark reveal" style="transition-delay: 0.4s;">
+              Conocer nuestros servicios <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIFERENCIALES
+         ============================================================ -->
+    <section class="differentials section-padding" id="differentials">
+      <div class="container">
+        <div class="differentials__header reveal">
+          <span class="section-label section-label--light">Por que elegirnos</span>
+          <h2>Lo que nos distingue</h2>
+          <p>Cada proyecto es una promesa de calidad, precision y resultados tangibles.</p>
+        </div>
+        <div class="grid-4 stagger-children">
+          <!-- Card 1 -->
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fas fa-drafting-compass"></i></div>
+            <h4>Precision tecnica</h4>
+            <p>Cada detalle planificado con exactitud para garantizar un resultado impecable.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fas fa-layer-group"></i></div>
+            <h4>Diseno funcional</h4>
+            <p>Espacios que combinan estetica y funcionalidad de forma inteligente.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fas fa-hard-hat"></i></div>
+            <h4>Ejecucion completa</h4>
+            <p>Del diseno a la construccion, manejamos cada fase del proyecto.</p>
+          </div>
+          <!-- Card 4 -->
+          <div class="diff-card">
+            <div class="diff-card__icon"><i class="fas fa-award"></i></div>
+            <h4>Calidad constructiva</h4>
+            <p>Materiales, procesos y acabados con los mas altos estandares.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS PREVIEW
+         ============================================================ -->
+    <section class="services-preview section-padding" id="servicesPreview">
+      <div class="container">
+        <div class="services-preview__header">
+          <span class="section-label reveal">Servicios</span>
+          <h2 class="reveal" style="transition-delay: 0.1s;">Soluciones integrales para cada proyecto</h2>
+          <p class="reveal" style="transition-delay: 0.2s;">
+            Desde el concepto hasta la entrega final, ofrecemos servicios completos con enfoque tecnico y profesional.
+          </p>
+        </div>
+        <div class="grid-4 stagger-children">
+          <!-- Service 1 -->
+          <div class="service-card" string="magnetic" string-radius="1000" string-strength="0.05">
+            <div class="service-card__image st-reveal" string string-repeat>
+              <img src="img/1150296.jpg" alt="Diseno y construccion de espacios" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h4>Diseno y construccion</h4>
+              <p>Proyectos integrales desde la conceptualizacion hasta la entrega de la obra terminada.</p>
+              <a href="/servicios" class="service-card__link">
+                Mas informacion <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Service 2 -->
+          <div class="service-card" string="magnetic" string-radius="1000" string-strength="0.05">
+            <div class="service-card__image st-reveal" string string-repeat>
+              <img src="img/12114.jpg" alt="Remodelacion y renovacion de espacios" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h4>Remodelaciones</h4>
+              <p>Transformamos espacios existentes con renovaciones funcionales y modernas.</p>
+              <a href="/servicios" class="service-card__link">
+                Mas informacion <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Service 3 -->
+          <div class="service-card" string="magnetic" string-radius="1000" string-strength="0.05">
+            <div class="service-card__image st-reveal" string string-repeat>
+              <img src="img/120.jpg" alt="Ingenieria estructural de calidad" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h4>Ingenieria estructural</h4>
+              <p>Soluciones estructurales seguras y eficientes para todo tipo de construccion.</p>
+              <a href="/servicios" class="service-card__link">
+                Mas informacion <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Service 4 -->
+          <div class="service-card" string="magnetic" string-radius="1000" string-strength="0.05">
+            <div class="service-card__image st-reveal" string string-repeat>
+              <img src="img/17811.jpg" alt="Supervision profesional de obra" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h4>Supervision de obra</h4>
+              <p>Control y seguimiento profesional para garantizar calidad en cada etapa.</p>
+              <a href="/servicios" class="service-card__link">
+                Mas informacion <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROCESO
+         ============================================================ -->
+    <section class="process section-padding" id="process">
+      <div class="container">
+        <div class="process__header reveal">
+          <span class="section-label section-label--light">Nuestro proceso</span>
+          <h2>Como trabajamos</h2>
+          <p>Un enfoque metodico que garantiza resultados excepcionales en cada proyecto.</p>
+        </div>
+        <div class="process__steps stagger-children">
+          <!-- Step 1 -->
+          <div class="process-step">
+            <div class="process-step__number">01</div>
+            <h4>Diseno</h4>
+            <p>Conceptualizamos y disenamos cada espacio con atencion al detalle, la funcionalidad y la estetica.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="process-step">
+            <div class="process-step__number">02</div>
+            <h4>Planeacion</h4>
+            <p>Planificamos tiempos, recursos y procesos constructivos con precision tecnica.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="process-step">
+            <div class="process-step__number">03</div>
+            <h4>Construccion</h4>
+            <p>Ejecutamos con los mas altos estandares de calidad y supervision continua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERIENCIA
+         ============================================================ -->
+    <section class="experience section-padding" id="experience">
+      <div class="container">
+        <div class="experience__grid">
+          <!-- Image -->
+          <div class="experience__image st-reveal" string string-repeat>
+            <img src="img/17811.jpg" alt="Equipo de NEZGA Arquitectos trabajando en proyecto" loading="lazy">
+          </div>
+          <!-- Content -->
+          <div class="experience__content">
+            <span class="section-label reveal">Experiencia</span>
+            <h2 class="reveal" style="transition-delay: 0.1s;">Mas de 8 proyectos desarrollados con exito</h2>
+            <p class="reveal" style="transition-delay: 0.2s;">
+              Cada proyecto refleja nuestro compromiso con la calidad, la precision y la satisfaccion de nuestros clientes.
+            </p>
+            <div class="metrics reveal" style="transition-delay: 0.3s;">
+              <div class="metric">
+                <div class="metric__number counter-animate" data-target="8">0</div>
+                <div class="metric__label">Proyectos desarrollados</div>
+              </div>
+              <div class="metric">
+                <div class="metric__number counter-animate" data-target="6">0</div>
+                <div class="metric__label">Proyectos concluidos</div>
+              </div>
+              <div class="metric">
+                <div class="metric__number counter-animate" data-target="2">0</div>
+                <div class="metric__label">En desarrollo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL
+         ============================================================ -->
+    <section class="cta-section" id="ctaFinal">
+      <div class="cta-section__bg">
+        <img src="img/1150296.jpg" alt="Construccion profesional" loading="lazy">
+      </div>
+      <div class="cta-section__overlay"></div>
+      <div class="container">
+        <div class="cta-section__content reveal">
+          <span class="section-label section-label--light">Comienza tu proyecto</span>
+          <h2>Hablemos de tu proyecto</h2>
+          <p>Cuentanos tu idea y hagamos realidad un espacio que funcione, perdure y destaque.</p>
+          <a href="/contacto" class="btn btn--primary">Contactanos ahora <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end .main-content -->
+
+  <!-- Footer Spacer (Essential for Sticky Reveal Fix) -->
+  <div class="footer-spacer"></div>
+
+  <!-- ============================================================
+       FOOTER - StringTune Shifting Effect
+       ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+      <!-- Top area -->
+      <div class="footer__top">
+        <!-- Brand -->
+        <div class="footer__brand">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos" loading="lazy">
+          <p>Empresa especializada en diseno, ingenieria y construccion. Soluciones integrales con precision tecnica y calidad constructiva.</p>
+        </div>
+        <!-- Navigation -->
+        <div class="footer__nav">
+          <h5>Navegacion</h5>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div class="footer__nav">
+          <h5>Contacto</h5>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:5554504445">55 5450 4445</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>CDMX / Toluca / Valle de Bravo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Area -->
+      <div class="footer__cta-area">
+        <h3>Construyamos juntos</h3>
+        <p>Tu siguiente proyecto comienza con una conversacion.</p>
+        <a href="/contacto" class="btn btn--outline">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2025 NEZGA Arquitectos. Todos los derechos reservados.</span>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
+  <!-- ============================================================
+       WHATSAPP FLOATING BUTTON
+       ============================================================ -->
+  <a href="https://wa.me/5555504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Enviar mensaje por WhatsApp"
+     id="whatsappBtn">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script src="https://unpkg.com/@fiddle-digital/string-tune@1.1.55/dist/index.js"></script>
+  <!-- JavaScript -->
   <script src="script.js"></script>
+
 </body>
 </html>

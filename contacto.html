@@ -1,180 +1,290 @@
-﻿<!DOCTYPE html>
-<html lang="es-MX">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | NEZGA ARQUITECTOS</title>
-  <meta name="description" content="Contacto de NEZGA ARQUITECTOS. Cuéntanos tu proyecto para diseñar y ejecutar una solución integral en arquitectura, ingeniería y construcción.">
+  <title>Contacto | NEZGA Arquitectos - Hablemos de tu proyecto</title>
+  <meta name="description" content="Contacta a NEZGA Arquitectos. Cuentanos tu idea y te ayudamos a desarrollarla. Telefono: 55 5450 4445. Ciudad de Mexico, Toluca y Valle de Bravo.">
+  <meta name="keywords" content="contacto arquitectos, cotizacion construccion, NEZGA contacto, arquitectos CDMX">
+  <meta name="author" content="NEZGA Arquitectos">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon/favicon.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- StringTune Library -->
+  <script src="https://unpkg.com/@fiddle-digital/string-tune@1.1.55/dist/index.js"></script>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
-    <div class="container header-shell">
-      <a class="brand" href="/" aria-label="NEZGA ARQUITECTOS inicio">
-        <img src="assets/img/logo-nezga-negativo.png" alt="Logotipo NEZGA ARQUITECTOS" class="brand-logo">
-      </a>
-
-      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a class="nav-link" href="/">Inicio</a>
-        <a class="nav-link" href="/servicios">Servicios</a>
-        <a class="nav-link active" href="/contacto">Contacto</a>
-      </nav>
-
-      <a href="/contacto" class="btn btn-main desktop-only">Hablemos de tu proyecto</a>
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="/" class="header__logo" aria-label="NEZGA Arquitectos - Inicio">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos Logo" width="315" height="70">
+        </a>
+        <nav class="header__nav" id="desktopNav" aria-label="Navegacion principal">
+          <a href="/">Inicio</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/contacto" class="active">Contacto</a>
+        </nav>
+        <a href="/contacto" class="btn btn--primary header__cta" string="magnetic" string-radius="800" string-strength="0.1">
+          Hablemos de tu proyecto <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero-inner contact-hero">
-      <div class="container hero-inner-content">
-        <p class="section-tag" data-anim="up">Contacto</p>
-        <h1 data-anim="clip">Cuéntanos tu idea y te ayudamos a desarrollarla.</h1>
-        <p data-anim="up">Te acompañamos desde la definición técnica inicial hasta la ejecución profesional en obra.</p>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu__overlay" id="mobileOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu movil">
+    <a href="/">Inicio</a>
+    <a href="/servicios">Servicios</a>
+    <a href="/contacto">Contacto</a>
+    <div class="mobile-menu__cta">
+      <a href="/contacto" class="btn btn--primary" style="width:100%; margin-top:1rem;">Hablemos de tu proyecto</a>
+    </div>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <div class="main-content">
+
+    <!-- ============================================================
+         HERO INTERIOR
+         ============================================================ -->
+    <section class="hero-interior" id="heroInterior">
+      <div class="hero-interior__bg">
+        <img src="img/17811.jpg" alt="Arquitecto trabajando en proyecto" loading="eager">
+      </div>
+      <div class="hero-interior__overlay"></div>
+      <div class="container">
+        <div class="hero-interior__content">
+          <span class="section-label section-label--light reveal">Ponte en contacto</span>
+          <h1 class="hero-interior__title" string="split" string-repeat string-split="char">Contacto</h1>
+          <p class="hero-interior__subtitle reveal" style="transition-delay: 0.2s;">
+            Cuentanos tu idea y te ayudamos a desarrollarla. Estamos listos para trabajar juntos.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container contact-premium-layout">
-        <article class="contact-form-card" data-anim="left">
-          <h2>Hablemos de tu proyecto</h2>
-          <p>Completa el formulario y te contactaremos para definir alcance, tiempos y viabilidad técnica.</p>
-
-          <form id="contactForm" novalidate>
-            <div class="form-grid">
-              <div class="field">
-                <label for="nombre">Nombre</label>
-                <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre completo">
-                <small class="error-text" data-error="nombre"></small>
+    <!-- ============================================================
+         CONTACT SECTION
+         ============================================================ -->
+    <section class="contact-section section-padding" id="contactSection">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Form -->
+          <div class="contact-form reveal">
+            <h3>Envianos un mensaje</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <span class="form-error" id="nombreError">Por favor ingresa tu nombre.</span>
               </div>
-
-              <div class="field">
-                <label for="telefono">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="55 0000 0000">
-                <small class="error-text" data-error="telefono"></small>
+              <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu telefono" required>
+                <span class="form-error" id="telefonoError">Por favor ingresa un telefono valido.</span>
               </div>
-
-              <div class="field">
-                <label for="correo">Correo</label>
-                <input id="correo" name="correo" type="email" autocomplete="email" placeholder="correo@dominio.com">
-                <small class="error-text" data-error="correo"></small>
+              <div class="form-group">
+                <label for="correo">Correo electronico</label>
+                <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                <span class="form-error" id="correoError">Por favor ingresa un correo valido.</span>
               </div>
-
-              <div class="field">
-                <label for="proyecto">Proyecto</label>
-                <input id="proyecto" name="proyecto" type="text" placeholder="Ej. Diseño y construcción residencial">
-                <small class="error-text" data-error="proyecto"></small>
+              <div class="form-group">
+                <label for="proyecto">Tipo de proyecto</label>
+                <select id="proyecto" name="proyecto" required>
+                  <option value="" disabled selected>Selecciona una opcion</option>
+                  <option value="diseno-construccion">Diseno y construccion</option>
+                  <option value="remodelacion">Remodelacion</option>
+                  <option value="ingenieria">Ingenieria estructural</option>
+                  <option value="supervision">Supervision de obra</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <span class="form-error" id="proyectoError">Por favor selecciona un tipo de proyecto.</span>
               </div>
-
-              <div class="field full">
+              <div class="form-group">
                 <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Comparte ubicación, superficie estimada y necesidades del proyecto."></textarea>
-                <small class="error-text" data-error="mensaje"></small>
+                <textarea id="mensaje" name="mensaje" placeholder="Cuentanos sobre tu proyecto..." rows="5" required></textarea>
+                <span class="form-error" id="mensajeError">Por favor escribe un mensaje.</span>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width: 100%;">
+                Enviar mensaje <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+            <!-- Success Message -->
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i>
+              <h4 style="margin-bottom: 0.5rem; color: white;">Mensaje enviado</h4>
+              <p style="color: rgba(255,255,255,0.85); margin: 0;">Gracias por contactarnos. Nos comunicaremos contigo pronto.</p>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="reveal">
+              <span class="section-label">Informacion de contacto</span>
+              <h3 style="margin-bottom: var(--space-lg); color: var(--texto-oscuro);">Estamos para ayudarte</h3>
+            </div>
+
+            <div class="contact-info__block reveal" style="transition-delay: 0.1s;">
+              <div class="contact-info__icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-info__text">
+                <h4>Telefono</h4>
+                <a href="tel:5554504445">55 5450 4445</a>
               </div>
             </div>
 
-            <button class="btn btn-main" type="submit">Enviar mensaje</button>
-            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-          </form>
-        </article>
-
-        <aside class="contact-detail-stack" data-anim="right">
-          <article class="contact-info-card">
-            <h3>Datos de contacto</h3>
-            <ul>
-              <li><i class="fa-solid fa-phone"></i> <a href="tel:+525554504445">55 5450 4445</a></li>
-              <li><i class="fa-solid fa-envelope"></i> <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a></li>
-              <li><i class="fa-solid fa-location-dot"></i> Ciudad de México / Toluca / Valle de Bravo</li>
-            </ul>
-            <div class="footer-socials">
-              <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="contact-info__block reveal" style="transition-delay: 0.2s;">
+              <div class="contact-info__icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-info__text">
+                <h4>Correo electronico</h4>
+                <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
+              </div>
             </div>
-          </article>
 
-          <article class="contact-info-card">
-            <h3>Qué sucede después</h3>
-            <ol>
-              <li>Revisión inicial de requerimientos.</li>
-              <li>Llamada de diagnóstico y alcance.</li>
-              <li>Propuesta técnica y siguientes pasos.</li>
-            </ol>
-          </article>
-        </aside>
+            <div class="contact-info__block reveal" style="transition-delay: 0.3s;">
+              <div class="contact-info__icon"><i class="fas fa-location-dot"></i></div>
+              <div class="contact-info__text">
+                <h4>Ubicacion</h4>
+                <p>Ciudad de Mexico</p>
+                <p>Toluca</p>
+                <p>Valle de Bravo</p>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="reveal" style="transition-delay: 0.4s;">
+              <h4 style="margin-bottom: 0.75rem; color: var(--texto-oscuro);">Siguenos</h4>
+              <div class="contact-info__socials">
+                <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Image -->
+            <div class="contact-image st-reveal reveal" string string-repeat style="transition-delay: 0.5s;">
+              <img src="img/14519.jpg" alt="Modelo arquitectonico sobre planos de diseno" loading="lazy">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section contact-visual-strip section-light">
-      <div class="container contact-strip-grid">
-        <article data-anim="up">
-          <img src="img/120.jpg" alt="Espacio interior residencial moderno">
-        </article>
-        <article data-anim="up">
-          <img src="img/14519.jpg" alt="Proceso de construcción con estructura">
-        </article>
-        <article data-anim="up">
-          <img src="img/17811.jpg" alt="Arquitectura moderna con iluminación nocturna">
-        </article>
+    <!-- ============================================================
+         CTA VISUAL SECTION
+         ============================================================ -->
+    <section class="cta-section">
+      <div class="cta-section__bg">
+        <img src="img/1150296.jpg" alt="Equipo de construccion profesional" loading="lazy">
+      </div>
+      <div class="cta-section__overlay"></div>
+      <div class="container">
+        <div class="cta-section__content reveal">
+          <span class="section-label section-label--light">Comienza hoy</span>
+          <h2>Tu proyecto merece lo mejor</h2>
+          <p>Precision, calidad y ejecucion profesional para hacer realidad tu vision.</p>
+          <a href="https://wa.me/5555504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio."
+             class="btn btn--primary" target="_blank" rel="noopener noreferrer" string="magnetic" string-radius="1000" string-strength="0.1">
+            Escribenos por WhatsApp <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img src="assets/img/logo-nezga-negativo.png" alt="NEZGA ARQUITECTOS" class="footer-logo">
-        <p>Contacta al equipo para planear tu proyecto con viabilidad técnica, alcance claro y ejecución profesional.</p>
+  </div><!-- end .main-content -->
+
+  <!-- Footer Spacer (Essential for Sticky Reveal Fix) -->
+  <div class="footer-spacer"></div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos" loading="lazy">
+          <p>Empresa especializada en diseno, ingenieria y construccion. Soluciones integrales con precision tecnica y calidad constructiva.</p>
+        </div>
+        <div class="footer__nav">
+          <h5>Navegacion</h5>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav">
+          <h5>Contacto</h5>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:5554504445">55 5450 4445</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>CDMX / Toluca / Valle de Bravo</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Navegación</h3>
-        <a href="/">Inicio</a>
-        <a href="/servicios">Servicios</a>
-        <a href="/contacto">Contacto</a>
+      <div class="footer__cta-area">
+        <h3>Construyamos juntos</h3>
+        <p>Tu siguiente proyecto comienza con una conversacion.</p>
+        <a href="/contacto" class="btn btn--outline">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
       </div>
-      <div>
-        <h3>Servicios Clave</h3>
-        <p>Diseño y construcción<br>Remodelaciones<br>Ingeniería estructural<br>Supervisión de obra</p>
-      </div>
-      <div>
-        <h3>Contacto Directo</h3>
-        <a href="tel:+525554504445">55 5450 4445</a>
-        <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
-        <a href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </div>
-      <div>
-        <h3>Zonas</h3>
-        <p>Ciudad de México<br>Toluca<br>Valle de Bravo</p>
-        <h3>Redes</h3>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2025 NEZGA Arquitectos. Todos los derechos reservados.</span>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
-    <div class="container legal-row">
-      <small>© <span data-year></span> NEZGA ARQUITECTOS</small>
-      <small>Desarrollado por: <a href="https://partumdesign.com.mx" target="_blank" rel="noopener noreferrer">Partum Design</a></small>
-    </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/5555504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio."
+     class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     aria-label="Enviar mensaje por WhatsApp" id="whatsappBtn">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script src="https://unpkg.com/@fiddle-digital/string-tune@1.1.55/dist/index.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-

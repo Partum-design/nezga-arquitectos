@@ -1,179 +1,297 @@
-﻿(function () {
-  const body = document.body;
-  const header = document.querySelector(".site-header");
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".site-nav");
-  const progressBar = document.querySelector(".scroll-progress");
+/* ============================================================
+   NEZGA ARQUITECTOS - Main JavaScript
+   Premium interactions, StringTune integration, form validation
+   ============================================================ */
 
-  const setHeaderState = () => {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 18);
-  };
+document.addEventListener('DOMContentLoaded', function () {
 
-  const setScrollProgress = () => {
-    if (!progressBar) return;
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-    progressBar.style.width = `${Math.min(progress, 100)}%`;
-  };
+  /* ============================================================
+     1. HEADER - Scroll Effect & Sticky
+     ============================================================ */
+  const header = document.getElementById('header');
 
-  setHeaderState();
-  setScrollProgress();
-
-  window.addEventListener("scroll", () => {
-    setHeaderState();
-    setScrollProgress();
-  }, { passive: true });
-
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = body.classList.toggle("menu-open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        body.classList.remove("menu-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
+  function handleHeaderScroll() {
+    if (window.scrollY > 80) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
   }
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 1120 && body.classList.contains("menu-open")) {
-      body.classList.remove("menu-open");
-      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  handleHeaderScroll(); // Initial check
+
+  /* ============================================================
+     2. MOBILE MENU
+     ============================================================ */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function toggleMobileMenu() {
+    const isOpen = mobileMenu.classList.contains('active');
+
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    mobileOverlay.classList.toggle('active');
+
+    // Toggle body scroll
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+
+    // Update aria
+    hamburger.setAttribute('aria-expanded', !isOpen);
+  }
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMobileMenu);
+  }
+
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close mobile menu when clicking a link
+  const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      closeMobileMenu();
     }
   });
 
-  const contactForm = document.querySelector("#contactForm");
-  if (contactForm) {
-    const status = document.querySelector("#formStatus");
-    const getField = (id) => contactForm.querySelector(`#${id}`);
-    const getError = (id) => contactForm.querySelector(`[data-error='${id}']`);
+  /* ============================================================
+     3. SCROLL REVEAL ANIMATIONS
+     ============================================================ */
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
 
-    const validators = {
-      nombre: {
-        check: (value) => value.trim().length >= 3,
-        message: "Escribe un nombre válido (mínimo 3 caracteres)."
-      },
-      telefono: {
-        check: (value) => /^[0-9+\s()-]{8,}$/.test(value.trim()),
-        message: "Ingresa un teléfono válido."
-      },
-      correo: {
-        check: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim()),
-        message: "Ingresa un correo válido."
-      },
-      proyecto: {
-        check: (value) => value.trim().length >= 3,
-        message: "Describe el tipo de proyecto."
-      },
-      mensaje: {
-        check: (value) => value.trim().length >= 12,
-        message: "Incluye al menos 12 caracteres en el mensaje."
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-    };
-
-    const setStatus = (text, type) => {
-      if (!status) return;
-      status.className = `form-status ${type}`;
-      status.textContent = text;
-    };
-
-    const validateField = (key) => {
-      const field = getField(key);
-      const error = getError(key);
-      const rule = validators[key];
-      const valid = field && rule ? rule.check(field.value) : true;
-      if (error && rule) error.textContent = valid ? "" : rule.message;
-      return valid;
-    };
-
-    Object.keys(validators).forEach((key) => {
-      const field = getField(key);
-      if (field) field.addEventListener("input", () => validateField(key));
     });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
 
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const valid = Object.keys(validators).every((key) => validateField(key));
+  revealElements.forEach(function (el) {
+    revealObserver.observe(el);
+  });
 
-      if (!valid) {
-        setStatus("Revisa los campos marcados antes de enviar.", "error");
-        return;
+  /* ============================================================
+     4. COUNTER ANIMATION
+     ============================================================ */
+  const counters = document.querySelectorAll('.counter-animate');
+
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const duration = 2000;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function (ease out cubic)
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+
+      el.textContent = current + '+';
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
       }
+    }
 
-      setStatus("Mensaje enviado. Te contactaremos a la brevedad.", "success");
-      contactForm.reset();
-    });
+    requestAnimationFrame(updateCounter);
   }
 
-  document.querySelectorAll("[data-counter]").forEach((node) => {
-    const target = Number(node.getAttribute("data-counter") || 0);
-    if (target > 0) node.textContent = `${target}+`;
+  const counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(function (counter) {
+    counterObserver.observe(counter);
   });
 
-  document.querySelectorAll("[data-year]").forEach((node) => {
-    node.textContent = String(new Date().getFullYear());
-  });
+  /* ============================================================
+     5. STRINGTUNE LIBRARY INTEGRATION
+     ============================================================ */
+  if (typeof StringTune !== 'undefined' && StringTune.StringTune) {
+    try {
+      const stringTune = StringTune.StringTune.getInstance();
+      window.StringTuneContext = stringTune;
 
-  const initStringTune = () => {
-    if (!window.StringTune || !window.StringTune.StringTune) return;
+      // Register available plugins
+      const plugins = [
+        'StringProgress', 'StringSplit', 'StringLazy', 'StringMagnetic', 'StringParallax'
+      ];
 
-    const API = window.StringTune;
-    const tune = API.StringTune.getInstance();
-
-    const addStringEffect = (element, effect, attrs = {}) => {
-      if (!element) return;
-      const raw = element.getAttribute("string") || "";
-      const tokens = raw.split("|").map((t) => t.trim()).filter(Boolean);
-      if (effect && !tokens.includes(effect)) tokens.push(effect);
-      element.setAttribute("string", tokens.join("|"));
-      Object.entries(attrs).forEach(([key, val]) => {
-        element.setAttribute(`string-${key}`, String(val));
-      });
-    };
-
-    const markReveal = (selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        el.classList.add("st-reveal");
-        if (!el.hasAttribute("string")) {
-          el.setAttribute("string", "");
-          el.setAttribute("string-repeat", "");
+      plugins.forEach(pluginName => {
+        if (StringTune[pluginName]) {
+          stringTune.use(StringTune[pluginName]);
         }
       });
-    };
 
-    markReveal(".section-head, .project-card, .service-item, .timeline-step, .quote-card, .zones-card, .service-panel, .contact-info-card, .contact-strip-grid article, .feature-media, .feature-copy, .process-alt-card, .process-alt-image, .gallery-grid article");
+      // Initialize
+      stringTune.start(0);
+    } catch (e) {
+      console.warn('StringTune initialization error:', e);
+    }
+  }
 
-    document.querySelectorAll(".hero-content h1, .section-head h2, .final-cta-wrap h2, .hero-inner-content h1").forEach((title) => {
-      title.classList.add("st-split");
-      title.setAttribute("string", "split");
-      title.setAttribute("string-repeat", "");
-      title.setAttribute("string-split", "char");
+  /* ============================================================
+     6. CONTACT FORM VALIDATION
+     ============================================================ */
+  const contactForm = document.getElementById('contactForm');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+
+      // Reset errors
+      const errors = contactForm.querySelectorAll('.form-error');
+      const inputs = contactForm.querySelectorAll('input, textarea, select');
+
+      errors.forEach(function (error) {
+        error.classList.remove('visible');
+      });
+      inputs.forEach(function (input) {
+        input.classList.remove('error');
+      });
+
+      // Validate nombre
+      const nombre = document.getElementById('nombre');
+      if (!nombre.value.trim()) {
+        showError('nombre');
+        isValid = false;
+      }
+
+      // Validate telefono
+      const telefono = document.getElementById('telefono');
+      if (!telefono.value.trim() || telefono.value.trim().length < 8) {
+        showError('telefono');
+        isValid = false;
+      }
+
+      // Validate correo
+      const correo = document.getElementById('correo');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!correo.value.trim() || !emailRegex.test(correo.value.trim())) {
+        showError('correo');
+        isValid = false;
+      }
+
+      // Validate proyecto
+      const proyecto = document.getElementById('proyecto');
+      if (!proyecto.value) {
+        showError('proyecto');
+        isValid = false;
+      }
+
+      // Validate mensaje
+      const mensaje = document.getElementById('mensaje');
+      if (!mensaje.value.trim()) {
+        showError('mensaje');
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Hide form, show success
+        contactForm.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }
     });
 
-    document.querySelectorAll(".btn, .whatsapp-float, .footer-socials a").forEach((node) => {
-      addStringEffect(node, "magnetic", { radius: 700, strength: 0.11 });
+    // Real-time validation on input
+    contactForm.querySelectorAll('input, textarea, select').forEach(function (field) {
+      field.addEventListener('input', function () {
+        this.classList.remove('error');
+        const errorEl = document.getElementById(this.id + 'Error');
+        if (errorEl) {
+          errorEl.classList.remove('visible');
+        }
+      });
     });
+  }
 
-    const footer = document.querySelector(".site-footer");
-    if (footer) {
-      footer.classList.add("st-footer-shift");
-      footer.setAttribute("string", "progress");
-      footer.setAttribute("string-exit-vp", "bottom");
+  function showError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorEl = document.getElementById(fieldId + 'Error');
+    if (field) field.classList.add('error');
+    if (errorEl) errorEl.classList.add('visible');
+  }
+
+  /* ============================================================
+     7. SMOOTH SCROLL FOR ANCHOR LINKS
+     ============================================================ */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  /* ============================================================
+     8. ACTIVE LINK HIGHLIGHT
+     ============================================================ */
+  // Already handled via HTML class="active" on each page
+
+  /* ============================================================
+     9. LAZY LOADING ENHANCEMENT
+     ============================================================ */
+  // Native lazy loading is already set via HTML attributes.
+  // StringTune handles its own lazy loading via the `string="lazy"` attribute.
+
+  /* ============================================================
+     10. PERFORMANCE: RequestAnimationFrame scroll handler
+     ============================================================ */
+  let ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        handleHeaderScroll();
+        ticking = false;
+      });
+      ticking = true;
     }
+  }
 
-    try {
-      tune.use(API.StringMagnetic);
-      tune.use(API.StringSplit);
-      tune.use(API.StringProgress);
-      tune.start(0);
-    } catch (error) {
-      console.warn("StringTune no pudo inicializarse:", error);
-    }
-  };
+  // Replace the basic scroll listener with RAF-optimized one
+  window.removeEventListener('scroll', handleHeaderScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  initStringTune();
-})();
+});
