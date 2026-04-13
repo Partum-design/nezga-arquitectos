@@ -2,181 +2,133 @@
   const body = document.body;
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelectorAll(".nav-link");
+  const nav = document.querySelector(".site-nav");
+  const progressBar = document.querySelector(".scroll-progress");
 
   const setHeaderState = () => {
     if (!header) return;
-    header.classList.toggle("scrolled", window.scrollY > 18);
+    header.classList.toggle("is-scrolled", window.scrollY > 18);
+  };
+
+  const setScrollProgress = () => {
+    if (!progressBar) return;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressBar.style.width = `${Math.min(progress, 100)}%`;
   };
 
   setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
+  setScrollProgress();
 
-  if (menuToggle) {
+  window.addEventListener("scroll", () => {
+    setHeaderState();
+    setScrollProgress();
+  }, { passive: true });
+
+  if (menuToggle && nav) {
     menuToggle.addEventListener("click", () => {
       const isOpen = body.classList.toggle("menu-open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      body.classList.remove("menu-open");
-      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 1080) {
+    if (window.innerWidth > 1120 && body.classList.contains("menu-open")) {
       body.classList.remove("menu-open");
       if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
     }
   });
 
-  const revealItems = document.querySelectorAll(".reveal");
-  if (revealItems.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
+  document.querySelectorAll("[data-anim]").forEach((item) => {
+    item.classList.add("is-visible");
+  });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
-  }
+  const counters = document.querySelectorAll("[data-counter]");
+  if (counters.length) {
+    const runCounter = (node) => {
+      const target = Number(node.getAttribute("data-counter") || 0);
+      if (!target) return;
+      const duration = 1200;
+      const startTime = performance.now();
 
-  const processSteps = document.querySelectorAll(".process-step");
-  if (processSteps.length) {
-    const processObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("in-view", entry.isIntersecting);
-        });
-      },
-      { threshold: 0.35 }
-    );
+      const update = (time) => {
+        const progress = Math.min((time - startTime) / duration, 1);
+        node.textContent = `${Math.floor(target * progress)}+`;
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          node.textContent = `${target}+`;
+        }
+      };
 
-    processSteps.forEach((step) => processObserver.observe(step));
-  }
-
-  const counterElements = document.querySelectorAll("[data-counter]");
-  const animateCounter = (element) => {
-    const target = Number(element.dataset.counter || 0);
-    let current = 0;
-    const duration = 1300;
-    const start = performance.now();
-
-    const tick = (timestamp) => {
-      const progress = Math.min((timestamp - start) / duration, 1);
-      current = Math.floor(progress * target);
-      element.textContent = `${current}+`;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        element.textContent = `${target}+`;
-      }
+      requestAnimationFrame(update);
     };
 
-    requestAnimationFrame(tick);
-  };
-
-  if (counterElements.length) {
-    const counterObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    counterElements.forEach((counter) => counterObserver.observe(counter));
+    counters.forEach((counter) => runCounter(counter));
   }
 
-  const hero = document.querySelector(".hero");
-  if (hero && window.matchMedia("(min-width: 881px)").matches) {
-    hero.addEventListener("mousemove", (event) => {
-      const bounds = hero.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width;
-      const y = (event.clientY - bounds.top) / bounds.height;
-      hero.style.setProperty("transform", `perspective(1200px) rotateX(${(y - 0.5) * -0.9}deg) rotateY(${(x - 0.5) * 1.2}deg)`);
-    });
-
-    hero.addEventListener("mouseleave", () => {
-      hero.style.setProperty("transform", "none");
-    });
-  }
-
-  const yearNode = document.querySelector("[data-year]");
-  if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 
   const contactForm = document.querySelector("#contactForm");
   if (contactForm) {
-    const statusBox = document.querySelector("#formStatus");
-    const fields = {
-      name: {
-        input: contactForm.querySelector("#nombre"),
-        error: contactForm.querySelector("[data-error='nombre']"),
-        validate: (value) => value.trim().length >= 3,
+    const status = document.querySelector("#formStatus");
+    const getField = (id) => contactForm.querySelector(`#${id}`);
+    const getError = (id) => contactForm.querySelector(`[data-error='${id}']`);
+
+    const validators = {
+      nombre: {
+        check: (value) => value.trim().length >= 3,
         message: "Escribe un nombre válido (mínimo 3 caracteres)."
       },
-      phone: {
-        input: contactForm.querySelector("#telefono"),
-        error: contactForm.querySelector("[data-error='telefono']"),
-        validate: (value) => /^[0-9+\s()-]{8,}$/.test(value.trim()),
+      telefono: {
+        check: (value) => /^[0-9+\s()-]{8,}$/.test(value.trim()),
         message: "Ingresa un teléfono válido."
       },
-      email: {
-        input: contactForm.querySelector("#correo"),
-        error: contactForm.querySelector("[data-error='correo']"),
-        validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim()),
-        message: "Ingresa un correo electrónico válido."
+      correo: {
+        check: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim()),
+        message: "Ingresa un correo válido."
       },
-      project: {
-        input: contactForm.querySelector("#proyecto"),
-        error: contactForm.querySelector("[data-error='proyecto']"),
-        validate: (value) => value.trim().length >= 3,
-        message: "Indica el tipo de proyecto."
+      proyecto: {
+        check: (value) => value.trim().length >= 3,
+        message: "Describe el tipo de proyecto."
       },
-      message: {
-        input: contactForm.querySelector("#mensaje"),
-        error: contactForm.querySelector("[data-error='mensaje']"),
-        validate: (value) => value.trim().length >= 12,
-        message: "Describe tu proyecto con al menos 12 caracteres."
+      mensaje: {
+        check: (value) => value.trim().length >= 12,
+        message: "Incluye al menos 12 caracteres en el mensaje."
       }
     };
 
     const setStatus = (text, type) => {
-      if (!statusBox) return;
-      statusBox.textContent = text;
-      statusBox.className = `form-status ${type}`;
+      if (!status) return;
+      status.className = `form-status ${type}`;
+      status.textContent = text;
     };
 
     const validateField = (key) => {
-      const field = fields[key];
-      if (!field) return true;
-      const valid = field.validate(field.input.value);
-      field.error.textContent = valid ? "" : field.message;
+      const field = getField(key);
+      const error = getError(key);
+      const rule = validators[key];
+      const valid = field && rule ? rule.check(field.value) : true;
+      if (error && rule) error.textContent = valid ? "" : rule.message;
       return valid;
     };
 
-    Object.keys(fields).forEach((key) => {
-      const field = fields[key];
-      field.input.addEventListener("input", () => validateField(key));
+    Object.keys(validators).forEach((key) => {
+      const field = getField(key);
+      if (field) {
+        field.addEventListener("input", () => validateField(key));
+      }
     });
 
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      setStatus("", "");
-      const valid = Object.keys(fields).every((key) => validateField(key));
+      const valid = Object.keys(validators).every((key) => validateField(key));
 
       if (!valid) {
         setStatus("Revisa los campos marcados antes de enviar.", "error");
@@ -187,4 +139,30 @@
       contactForm.reset();
     });
   }
+
+  const yearNodes = document.querySelectorAll("[data-year]");
+  yearNodes.forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
+  });
+
+  const initStringTune = () => {
+    if (!window.StringTune || !window.StringTune.StringTune) return;
+
+    const API = window.StringTune;
+    const tune = API.StringTune.getInstance();
+
+    try {
+      tune.use(API.StringMagnetic);
+
+      document.querySelectorAll(".btn, .whatsapp-float, .footer-socials a").forEach((node) => {
+        node.setAttribute("string", "magnetic");
+      });
+
+      tune.start(60);
+    } catch (error) {
+      console.warn("StringTune no pudo inicializarse:", error);
+    }
+  };
+
+  initStringTune();
 })();
