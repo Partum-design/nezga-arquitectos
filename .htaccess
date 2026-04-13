@@ -1,0 +1,11 @@
+﻿RewriteEngine On
+
+# Si existe archivo o directorio real, no reescribir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# URLs limpias: /ruta -> /ruta.html
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Página principal
+DirectoryIndex index.html
