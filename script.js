@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileOverlay = document.getElementById('mobileOverlay');
-  const mobileClose = document.getElementById('mobileClose');
 
   function toggleMobileMenu() {
     const isOpen = mobileMenu.classList.contains('active');
@@ -35,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
     mobileOverlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open', !isOpen);
 
     // Toggle body scroll
     document.body.style.overflow = isOpen ? '' : 'hidden';
@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.classList.remove('active');
     mobileMenu.classList.remove('active');
     mobileOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
     hamburger.setAttribute('aria-expanded', 'false');
   }
@@ -57,10 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (mobileOverlay) {
     mobileOverlay.addEventListener('click', closeMobileMenu);
-  }
-
-  if (mobileClose) {
-    mobileClose.addEventListener('click', closeMobileMenu);
   }
 
   // Close mobile menu when clicking a link
@@ -80,9 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
      2.1 CUSTOM CURSOR (Desktop only)
      ============================================================ */
   const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (supportsFinePointer && !reducedMotion) {
+  if (supportsFinePointer) {
     document.body.classList.add('has-custom-cursor');
 
     const cursorDot = document.createElement('div');
