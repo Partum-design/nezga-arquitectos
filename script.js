@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileClose = document.getElementById('mobileClose');
 
   function toggleMobileMenu() {
     const isOpen = mobileMenu.classList.contains('active');
@@ -58,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
     mobileOverlay.addEventListener('click', closeMobileMenu);
   }
 
+  if (mobileClose) {
+    mobileClose.addEventListener('click', closeMobileMenu);
+  }
+
   // Close mobile menu when clicking a link
   const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
   mobileLinks.forEach(function (link) {
@@ -70,6 +75,63 @@ document.addEventListener('DOMContentLoaded', function () {
       closeMobileMenu();
     }
   });
+
+  /* ============================================================
+     2.1 CUSTOM CURSOR (Desktop only)
+     ============================================================ */
+  const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (supportsFinePointer && !reducedMotion) {
+    document.body.classList.add('has-custom-cursor');
+
+    const cursorDot = document.createElement('div');
+    cursorDot.className = 'custom-cursor-dot';
+    const cursorRing = document.createElement('div');
+    cursorRing.className = 'custom-cursor-ring';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorRing);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.2;
+      ringY += (mouseY - ringY) * 0.2;
+
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+
+      requestAnimationFrame(renderCursor);
+    }
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      document.body.classList.add('cursor-active');
+    });
+
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget || e.relatedTarget.nodeName === 'HTML') {
+        document.body.classList.remove('cursor-active');
+      }
+    });
+
+    document.querySelectorAll('a, button, .btn, .hamburger, input, textarea, select').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        document.body.classList.add('cursor-hover');
+      });
+      el.addEventListener('mouseleave', function () {
+        document.body.classList.remove('cursor-hover');
+      });
+    });
+
+    renderCursor();
+  }
 
   /* ============================================================
      3. SCROLL REVEAL ANIMATIONS
