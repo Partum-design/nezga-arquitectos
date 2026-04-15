@@ -1641,6 +1641,18 @@ p {
   letter-spacing: 0.1em;
 }
 
+.footer__credit {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.58);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.footer__credit:hover {
+  color: var(--texto-claro);
+}
+
 .footer__socials {
   display: flex;
   gap: 1rem;
