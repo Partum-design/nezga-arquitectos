@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos ejecutados | NEZGA Arquitectos</title>
+  <meta name="description" content="Portafolio de proyectos ejecutados por NEZGA Arquitectos: diseño, ingeniería estructural, construcción y supervisión técnica.">
+  <meta name="keywords" content="proyectos ejecutados, portafolio de arquitectura, obras construidas, NEZGA Arquitectos">
+  <meta name="author" content="NEZGA Arquitectos">
+
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://unpkg.com/@fiddle-digital/string-tune@1.1.55/dist/index.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="/" class="header__logo" aria-label="NEZGA Arquitectos - Inicio">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos Logo" width="315" height="70">
+        </a>
+        <nav class="header__nav" id="desktopNav" aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/contacto">Contacto</a>
+          <a href="/proyectos-ejecutados" class="active">Proyectos ejecutados</a>
+        </nav>
+        <a href="/contacto" class="btn btn--primary header__cta">
+          Hablemos de tu proyecto <i class="fas fa-arrow-right"></i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu__overlay" id="mobileOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <div class="mobile-menu__links">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/proyectos-ejecutados">Proyectos ejecutados</a>
+    </div>
+    <div class="mobile-menu__cta">
+      <p>Conoce algunas de nuestras obras construidas.</p>
+      <a href="/contacto" class="mobile-menu__cta-link">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="mobile-menu__social">
+      <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+
+    <section class="hero-interior" id="heroInterior">
+      <div class="hero-interior__bg">
+        <img src="img/render%20claverias.png" alt="Render de proyecto residencial" loading="eager">
+      </div>
+      <div class="hero-interior__overlay"></div>
+      <div class="container">
+        <div class="hero-interior__content">
+          <span class="section-label section-label--light reveal">Portafolio</span>
+          <h1 class="hero-interior__title" string="split" string-repeat string-split="char">Proyectos ejecutados</h1>
+          <p class="hero-interior__subtitle reveal" style="transition-delay: 0.2s;">
+            Obras reales con enfoque en diseño, ingeniería estructural, ejecución y control de calidad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-showcase section-padding" id="projectsShowcase">
+      <div class="container">
+        <div class="projects-showcase__header reveal">
+          <span class="section-label">Selección de obras</span>
+          <h2>Galería de proyectos construidos</h2>
+          <p>Cada imagen refleja nuestro estándar técnico y constructivo: planeación precisa, ejecución en campo y resultados duraderos.</p>
+        </div>
+
+        <div class="projects-showcase__grid stagger-children">
+          <article class="portfolio-card portfolio-card--wide">
+            <img src="img/render%20claverias.png" alt="Proyecto residencial en Claverías" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Residencial</span>
+              <h3>Casa Claverías</h3>
+              <p>Desarrollo arquitectónico integral con visualización previa y definición constructiva.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--tall">
+            <img src="img/8b807d60-7772-422e-87f0-b22e6284b3b8.jpg" alt="Ingeniería estructural aplicada" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Ingeniería</span>
+              <h3>Cálculo estructural</h3>
+              <p>Modelado y revisión técnica para garantizar estabilidad, seguridad y cumplimiento normativo.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <img src="img/1150296.jpg" alt="Proceso constructivo en obra" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Construcción</span>
+              <h3>Ejecución de obra</h3>
+              <p>Coordinación de especialidades y seguimiento en sitio para cumplir alcance y tiempos.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <img src="img/12114.jpg" alt="Remodelación de interiores" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Remodelación</span>
+              <h3>Renovación integral</h3>
+              <p>Actualización funcional y estética con acabados durables y atención al detalle.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <img src="img/17811.jpg" alt="Supervisión profesional en obra" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Supervisión</span>
+              <h3>Control técnico en campo</h3>
+              <p>Revisión continua de calidad, avance y especificaciones constructivas del proyecto.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <img src="img/120.jpg" alt="Planeación y diseño arquitectónico" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Diseño</span>
+              <h3>Planeación del proyecto</h3>
+              <p>Definición de criterios arquitectónicos y constructivos para una ejecución eficiente.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-section__bg">
+        <img src="img/12114.jpg" alt="Equipo de obra de NEZGA" loading="lazy">
+      </div>
+      <div class="cta-section__overlay"></div>
+      <div class="container">
+        <div class="cta-section__content reveal">
+          <span class="section-label section-label--light">Siguiente proyecto</span>
+          <h2>Convirtamos tu idea en una obra ejecutada</h2>
+          <p>Te acompañamos desde el concepto hasta la entrega final, con control técnico en cada etapa.</p>
+          <a href="/contacto" class="btn btn--primary">Solicitar propuesta <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer-spacer"></div>
+
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="logo/NEZGA ARQUITECTOS LOGOTIPO NEGATIVO.png" alt="NEZGA Arquitectos" loading="lazy">
+          <p>Empresa especializada en diseño, ingeniería y construcción. Soluciones integrales con precisión técnica y calidad constructiva.</p>
+        </div>
+        <div class="footer__nav">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/proyectos-ejecutados">Proyectos ejecutados</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav">
+          <h5>Contacto</h5>
+          <div class="footer__contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+525554504445">+52 55 5450 4445</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>CDMX / Toluca / Valle de Bravo</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__cta-area">
+        <h3>Construyamos juntos</h3>
+        <p>Tu siguiente proyecto comienza con una conversación.</p>
+        <a href="/contacto" class="btn btn--outline">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 NEZGA Arquitectos. Todos los derechos reservados.</span>
+        <a href="https://partumdesign.com.mx" class="footer__credit" target="_blank" rel="noopener noreferrer">
+          Desarrollado por Partum Design
+        </a>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Enviar mensaje por WhatsApp"
+     id="whatsappBtn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
