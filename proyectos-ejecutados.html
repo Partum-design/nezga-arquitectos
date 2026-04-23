@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | NEZGA Arquitectos - Hablemos de tu proyecto</title>
-  <meta name="description" content="Contacta a NEZGA Arquitectos. Cuéntanos tu idea y te ayudamos a desarrollarla. Teléfono: +52 55 5450 4445. Ciudad de México, Toluca y Valle de Bravo.">
-  <meta name="keywords" content="contacto arquitectos, cotización construcción, NEZGA contacto, arquitectos CDMX">
+  <title>Proyectos ejecutados | NEZGA Arquitectos</title>
+  <meta name="description" content="Conoce los proyectos ejecutados de NEZGA Arquitectos. Portafolio visual de obras construidas, supervisadas y desarrolladas por nuestro equipo.">
+  <meta name="keywords" content="proyectos ejecutados, portafolio arquitectura, obras construidas, NEZGA Arquitectos">
   <meta name="author" content="NEZGA Arquitectos">
 
   <!-- Favicon -->
@@ -41,10 +41,10 @@
         <nav class="header__nav" id="desktopNav" aria-label="Navegación principal">
           <a href="/">Inicio</a>
           <a href="/servicios">Servicios</a>
-          <a href="/contacto" class="active">Contacto</a>
-          <a href="/proyectos-ejecutados">Proyectos ejecutados</a>
+          <a href="/contacto">Contacto</a>
+          <a href="/proyectos-ejecutados" class="active">Proyectos ejecutados</a>
         </nav>
-        <a href="/contacto" class="btn btn--primary header__cta" string="magnetic" string-radius="800" string-strength="0.1">
+        <a href="/contacto" class="btn btn--primary header__cta">
           Hablemos de tu proyecto <i class="fas fa-arrow-right"></i>
         </a>
         <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
@@ -66,7 +66,7 @@
       <a href="/proyectos-ejecutados">Proyectos ejecutados</a>
     </div>
     <div class="mobile-menu__cta">
-      <p>Cotizamos y desarrollamos tu proyecto de forma integral.</p>
+      <p>Explora nuestro portafolio de obras construidas.</p>
       <a href="/contacto" class="mobile-menu__cta-link">Hablemos de tu proyecto <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="mobile-menu__social">
@@ -85,125 +85,57 @@
          ============================================================ -->
     <section class="hero-interior" id="heroInterior">
       <div class="hero-interior__bg">
-        <img src="img/17811.jpg" alt="Arquitecto trabajando en proyecto" loading="eager">
+        <img src="img/render%20claverias.png" alt="Render arquitectónico de proyecto" loading="eager">
       </div>
       <div class="hero-interior__overlay"></div>
       <div class="container">
         <div class="hero-interior__content">
-          <span class="section-label section-label--light reveal">Ponte en contacto</span>
-          <h1 class="hero-interior__title" string="split" string-repeat string-split="char">Contacto</h1>
+          <span class="section-label section-label--light reveal">Portafolio</span>
+          <h1 class="hero-interior__title" string="split" string-repeat string-split="char">Proyectos ejecutados</h1>
           <p class="hero-interior__subtitle reveal" style="transition-delay: 0.2s;">
-            Cuéntanos tu idea y te ayudamos a desarrollarla. Estamos listos para trabajar juntos.
+            Una selección de obras construidas y desarrolladas por nuestro equipo.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         CONTACT SECTION
+         PORTAFOLIO
          ============================================================ -->
-    <section class="contact-section section-padding" id="contactSection">
+    <section class="project-gallery section-padding" id="portafolio">
       <div class="container">
-        <div class="contact-grid">
-          <!-- Form -->
-          <div class="contact-form reveal">
-            <h3>Envíanos un mensaje</h3>
-            <form id="contactForm" novalidate>
-              <div class="form-group">
-                <label for="nombre">Nombre completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                <span class="form-error" id="nombreError">Por favor ingresa tu nombre.</span>
-              </div>
-              <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
-                <span class="form-error" id="telefonoError">Por favor ingresa un teléfono válido.</span>
-              </div>
-              <div class="form-group">
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
-                <span class="form-error" id="correoError">Por favor ingresa un correo válido.</span>
-              </div>
-              <div class="form-group">
-                <label for="proyecto">Tipo de proyecto</label>
-                <select id="proyecto" name="proyecto" required>
-                  <option value="" disabled selected>Selecciona una opción</option>
-                  <option value="diseno-construccion">Diseño y construcción</option>
-                  <option value="remodelacion">Remodelación</option>
-                  <option value="ingenieria">Ingeniería estructural</option>
-                  <option value="supervision">Supervisión de obra</option>
-                  <option value="otro">Otro</option>
-                </select>
-                <span class="form-error" id="proyectoError">Por favor selecciona un tipo de proyecto.</span>
-              </div>
-              <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." rows="5" required></textarea>
-                <span class="form-error" id="mensajeError">Por favor escribe un mensaje.</span>
-              </div>
-              <button type="submit" class="btn btn--primary" style="width: 100%;">
-                Enviar mensaje <i class="fas fa-paper-plane"></i>
-              </button>
-            </form>
-            <!-- Success Message -->
-            <div class="form-success" id="formSuccess">
-              <i class="fas fa-check-circle"></i>
-              <h4 style="margin-bottom: 0.5rem; color: white;">Mensaje enviado</h4>
-              <p style="color: rgba(255,255,255,0.85); margin: 0;">Gracias por contactarnos. Nos comunicaremos contigo pronto.</p>
-            </div>
-          </div>
-
-          <!-- Contact Info -->
-          <div class="contact-info">
-            <div class="reveal">
-              <span class="section-label">Información de contacto</span>
-              <h3 style="margin-bottom: var(--space-lg); color: var(--texto-oscuro);">Estamos para ayudarte</h3>
-            </div>
-
-            <div class="contact-info__block reveal" style="transition-delay: 0.1s;">
-              <div class="contact-info__icon"><i class="fas fa-phone"></i></div>
-              <div class="contact-info__text">
-                <h4>Teléfono</h4>
-                <a href="tel:+525554504445">+52 55 5450 4445</a>
-              </div>
-            </div>
-
-            <div class="contact-info__block reveal" style="transition-delay: 0.2s;">
-              <div class="contact-info__icon"><i class="fas fa-envelope"></i></div>
-              <div class="contact-info__text">
-                <h4>Correo electrónico</h4>
-                <a href="mailto:nezgarquitectos2015@gmail.com">nezgarquitectos2015@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="contact-info__block reveal" style="transition-delay: 0.3s;">
-              <div class="contact-info__icon"><i class="fas fa-location-dot"></i></div>
-              <div class="contact-info__text">
-                <h4>Ubicación</h4>
-                <p>Ciudad de México</p>
-                <p>Toluca</p>
-                <p>Valle de Bravo</p>
-              </div>
-            </div>
-
-            <!-- Social Links -->
-            <div class="reveal" style="transition-delay: 0.4s;">
-              <h4 style="margin-bottom: 0.75rem; color: var(--texto-oscuro);">Síguenos</h4>
-              <div class="contact-info__socials">
-                <a href="https://www.facebook.com/share/1ECDgg3LtX/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/nezga_arquitectos" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Contact Image -->
-            <div class="contact-image st-reveal reveal" string string-repeat style="transition-delay: 0.5s;">
-              <img src="img/14519.jpg" alt="Modelo arquitectónico sobre planos de diseño" loading="lazy">
-            </div>
-          </div>
+        <div class="project-gallery__header">
+          <span class="section-label reveal">Galería de obras</span>
+          <h2 class="reveal" style="transition-delay: 0.1s;">Portafolio de proyectos construidos</h2>
+          <p class="reveal" style="transition-delay: 0.2s;">
+            Diseño, ingeniería estructural, ejecución en obra y supervisión técnica en cada etapa.
+          </p>
+        </div>
+        <div class="project-gallery__grid stagger-children">
+          <figure class="gallery-item">
+            <img src="img/render%20claverias.png" alt="Render de proyecto residencial en Claverías" loading="lazy">
+            <figcaption class="gallery-item__caption">Proyecto residencial en Claverías</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="img/8b807d60-7772-422e-87f0-b22e6284b3b8.jpg" alt="Ingeniería estructural y análisis técnico" loading="lazy">
+            <figcaption class="gallery-item__caption">Ingeniería estructural</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="img/1150296.jpg" alt="Proceso constructivo en desarrollo" loading="lazy">
+            <figcaption class="gallery-item__caption">Ejecución de obra</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="img/12114.jpg" alt="Trabajo de remodelación en interiores" loading="lazy">
+            <figcaption class="gallery-item__caption">Remodelación y acabados</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="img/17811.jpg" alt="Supervisión técnica de proyecto arquitectónico" loading="lazy">
+            <figcaption class="gallery-item__caption">Supervisión de obra</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="img/120.jpg" alt="Modelo arquitectónico y planteamiento de diseño" loading="lazy">
+            <figcaption class="gallery-item__caption">Planeación y diseño</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -213,18 +145,15 @@
          ============================================================ -->
     <section class="cta-section">
       <div class="cta-section__bg">
-        <img src="img/1150296.jpg" alt="Equipo de construcción profesional" loading="lazy">
+        <img src="img/12114.jpg" alt="Equipo ejecutando obra" loading="lazy">
       </div>
       <div class="cta-section__overlay"></div>
       <div class="container">
         <div class="cta-section__content reveal">
-          <span class="section-label section-label--light">Comienza hoy</span>
-          <h2>Tu proyecto merece lo mejor</h2>
-          <p>Precisión, calidad y ejecución profesional para hacer realidad tu visión.</p>
-          <a href="https://wa.me/525554504445?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20servicio."
-             class="btn btn--primary" target="_blank" rel="noopener noreferrer" string="magnetic" string-radius="1000" string-strength="0.1">
-            Escribenos por WhatsApp <i class="fab fa-whatsapp"></i>
-          </a>
+          <span class="section-label section-label--light">¿Listo para construir?</span>
+          <h2>Hablemos de tu proyecto</h2>
+          <p>Llevamos tu idea a obra con control técnico, calidad y cumplimiento.</p>
+          <a href="/contacto" class="btn btn--primary">Contáctanos ahora <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -297,5 +226,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
