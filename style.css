@@ -2719,3 +2719,19 @@ body.has-custom-cursor.cursor-hover .custom-cursor-dot {
     display: none;
   }
 }
+
+.projects-hero__title {
+  max-width: 16ch;
+  line-height: 0.98;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (max-width: 768px) {
+  .projects-hero__title {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 11vw, 3.4rem);
+    line-height: 1.02;
+  }
+}
