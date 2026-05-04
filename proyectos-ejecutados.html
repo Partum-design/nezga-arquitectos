@@ -88,66 +88,284 @@
           <p>Cada imagen refleja nuestro est&aacute;ndar t&eacute;cnico y constructivo: planeaci&oacute;n precisa, ejecuci&oacute;n en campo y resultados duraderos.</p>
         </div>
 
+        <div class="projects-showcase__controls reveal">
+          <div class="projects-showcase__filters" role="tablist" aria-label="Filtrar proyectos por ubicaci&oacute;n">
+            <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">Todos</button>
+            <button type="button" class="filter-button" data-filter="azcapotzalco-2022-2023" aria-pressed="false">Azcapotzalco</button>
+            <button type="button" class="filter-button" data-filter="cuernavaca-2017-2018" aria-pressed="false">Cuernavaca </button>
+            <button type="button" class="filter-button" data-filter="proyecto-miraji" aria-pressed="false">Proyecto Miraji</button>
+            <button type="button" class="filter-button" data-filter="santa-fe-2019-2021" aria-pressed="false">Santa Fe </button>
+            <button type="button" class="filter-button" data-filter="valle-de-bravo-2015-2017" aria-pressed="false">Valle de Bravo </button>
+            <button type="button" class="filter-button" data-filter="villa-victoria-2023-2024" aria-pressed="false">Villa Victoria</button>
+          </div>
+        </div>
+
         <div class="projects-showcase__grid stagger-children">
-          <article class="portfolio-card portfolio-card--wide">
+
+          <!-- ══ TODOS: 6 tarjetas visibles por defecto (data-category="all") ══ -->
+          <article class="portfolio-card portfolio-card--wide" data-category="all">
             <img src="img/render%20claverias.png" alt="Proyecto residencial en Claver&iacute;as" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Residencial</span>
+              <p class="portfolio-card__location">Azcapotzalco</p>
               <h3>Casa Claver&iacute;as</h3>
               <p>Desarrollo arquitect&oacute;nico integral con visualizaci&oacute;n previa y definici&oacute;n constructiva.</p>
             </div>
           </article>
 
-          <article class="portfolio-card portfolio-card--tall">
+          <article class="portfolio-card portfolio-card--tall" data-category="all">
             <img src="img/8b807d60-7772-422e-87f0-b22e6284b3b8.jpg" alt="Ingenier&iacute;a estructural aplicada" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Ingenier&iacute;a</span>
+              <p class="portfolio-card__location">Proyecto Miraji</p>
               <h3>C&aacute;lculo estructural</h3>
               <p>Modelado y revisi&oacute;n t&eacute;cnica para garantizar estabilidad, seguridad y cumplimiento normativo.</p>
             </div>
           </article>
 
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-category="all">
             <img src="img/1150296.jpg" alt="Proceso constructivo en obra" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Construcci&oacute;n</span>
+              <p class="portfolio-card__location">Cuernavaca</p>
               <h3>Ejecuci&oacute;n de obra</h3>
               <p>Coordinaci&oacute;n de especialidades y seguimiento en sitio para cumplir alcance y tiempos.</p>
             </div>
           </article>
 
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-category="all">
             <img src="img/12114.jpg" alt="Remodelaci&oacute;n de interiores" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Remodelaci&oacute;n</span>
+              <p class="portfolio-card__location">Santa Fe</p>
               <h3>Renovaci&oacute;n integral</h3>
               <p>Actualizaci&oacute;n funcional y est&eacute;tica con acabados durables y atenci&oacute;n al detalle.</p>
             </div>
           </article>
 
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-category="all">
             <img src="img/17811.jpg" alt="Supervisi&oacute;n profesional en obra" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Supervisi&oacute;n</span>
+              <p class="portfolio-card__location">Valle de Bravo</p>
               <h3>Control t&eacute;cnico en campo</h3>
               <p>Revisi&oacute;n continua de calidad, avance y especificaciones constructivas del proyecto.</p>
             </div>
           </article>
 
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-category="all">
             <img src="img/120.jpg" alt="Planeaci&oacute;n y dise&ntilde;o arquitect&oacute;nico" loading="lazy">
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__content">
               <span class="portfolio-card__tag">Dise&ntilde;o</span>
+              <p class="portfolio-card__location">Miraj&iacute;</p>
               <h3>Planeaci&oacute;n del proyecto</h3>
               <p>Definici&oacute;n de criterios arquitect&oacute;nicos y constructivos para una ejecuci&oacute;n eficiente.</p>
             </div>
           </article>
+
+          <!-- ══ AZCAPOTZALCO 2022-2023 — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="azcapotzalco-2022-2023">
+            <img src="img/proyectos-ejecutados/azcapozalco 2022-2023/1.jpeg" alt="Casa Claver&iacute;as – Azcapotzalco" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Residencial</span>
+              <p class="portfolio-card__location">Azcapotzalco 2022-2023</p>
+              <h3>Casa Claver&iacute;as</h3>
+              <p>Desarrollo arquitect&oacute;nico integral con visualizaci&oacute;n previa y definici&oacute;n constructiva.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="azcapotzalco-2022-2023">
+            <img src="img/proyectos-ejecutados/azcapozalco 2022-2023/14.jpeg" alt="Azcapotzalco – fase estructural" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Estructura</span>
+              <p class="portfolio-card__location">Azcapotzalco 2022-2023</p>
+              <h3>Casa Azcapotzalco II</h3>
+              <p>Segunda fase de obra residencial con direcci&oacute;n t&eacute;cnica y acabados en sitio.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="azcapotzalco-2022-2023">
+            <img src="img/proyectos-ejecutados/azcapozalco 2022-2023/9.jpeg" alt="Azcapotzalco – acabados finales" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Acabados</span>
+              <p class="portfolio-card__location">Azcapotzalco 2022-2023</p>
+              <h3>Casa Azcapotzalco III</h3>
+              <p>Ejecuci&oacute;n de acabados y entrega final con control de calidad en cada detalle.</p>
+            </div>
+          </article>
+
+          <!-- ══ CUERNAVACA 2017-2018 — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="cuernavaca-2017-2018">
+            <img src="img/proyectos-ejecutados/cuernavaca 2017-2018/1.jpeg" alt="Proceso constructivo Cuernavaca" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Construcci&oacute;n</span>
+              <p class="portfolio-card__location">Cuernavaca 2017-2018</p>
+              <h3>Ejecuci&oacute;n de obra</h3>
+              <p>Coordinaci&oacute;n de especialidades y seguimiento en sitio para cumplir alcance y tiempos.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="cuernavaca-2017-2018">
+            <img src="img/proyectos-ejecutados/cuernavaca 2017-2018/WhatsApp Image 2026-05-02 at 4.55.12 PM.jpeg" alt="Cuernavaca – interior residencial" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Residencial</span>
+              <p class="portfolio-card__location">Cuernavaca 2017-2018</p>
+              <h3>Casa Cuernavaca II</h3>
+              <p>Proyecto residencial de dos niveles con dise&ntilde;o bioclim&aacute;tico y materiales regionales.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="cuernavaca-2017-2018">
+            <img src="img/proyectos-ejecutados/cuernavaca 2017-2018/WhatsApp Image 2026-05-02 at 4.55.11 PM.jpeg" alt="Cuernavaca – render final" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Dise&ntilde;o</span>
+              <p class="portfolio-card__location">Cuernavaca 2017-2018</p>
+              <h3>Casa Cuernavaca III</h3>
+              <p>Visualizaci&oacute;n arquitect&oacute;nica y desarrollo de proyecto ejecutivo para entrega en campo.</p>
+            </div>
+          </article>
+
+          <!-- ══ PROYECTO MIRAJI — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="proyecto-miraji">
+            <img src="img/proyectos-ejecutados/proyecto miraji/FB_IMG_1518277221301.jpg" alt="Miraji – c&aacute;lculo estructural" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Ingenier&iacute;a</span>
+              <p class="portfolio-card__location">Proyecto Miraji</p>
+              <h3>C&aacute;lculo estructural</h3>
+              <p>Modelado y revisi&oacute;n t&eacute;cnica para garantizar estabilidad, seguridad y cumplimiento normativo.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="proyecto-miraji">
+            <img src="img/proyectos-ejecutados/proyecto miraji/FB_IMG_1518277240224.jpg" alt="Miraji – planeaci&oacute;n de proyecto" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Dise&ntilde;o</span>
+              <p class="portfolio-card__location">Proyecto Miraji</p>
+              <h3>Planeaci&oacute;n arquitect&oacute;nica</h3>
+              <p>Definici&oacute;n de criterios constructivos y de dise&ntilde;o para una ejecuci&oacute;n eficiente.</p>
+            </div>
+          </article>
+
+          <!-- ══ SANTA FE 2019-2021 — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="santa-fe-2019-2021">
+            <img src="img/proyectos-ejecutados/santa fe 2019-2021/ok2.jpeg" alt="Santa Fe – renovaci&oacute;n integral" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Remodelaci&oacute;n</span>
+              <p class="portfolio-card__location">Santa Fe 2019-2021</p>
+              <h3>Renovaci&oacute;n integral</h3>
+              <p>Actualizaci&oacute;n funcional y est&eacute;tica con acabados durables y atenci&oacute;n al detalle.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="santa-fe-2019-2021">
+            <img src="img/proyectos-ejecutados/santa fe 2019-2021/ok4.jpeg" alt="Santa Fe – reforma de interiores" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Interiores</span>
+              <p class="portfolio-card__location">Santa Fe 2019-2021</p>
+              <h3>Suite Santa Fe</h3>
+              <p>Reforma interior y optimizaci&oacute;n de espacios para un hogar m&aacute;s funcional y confortable.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="santa-fe-2019-2021">
+            <img src="img/proyectos-ejecutados/santa fe 2019-2021/ok3.jpeg" alt="Santa Fe – proyecto ejecutivo" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Proyecto ejecutivo</span>
+              <p class="portfolio-card__location">Santa Fe 2019-2021</p>
+              <h3>Casa Santa Fe III</h3>
+              <p>Desarrollo de proyecto ejecutivo con coordinaci&oacute;n de instalaciones y acabados especiales.</p>
+            </div>
+          </article>
+
+          <!-- ══ VALLE DE BRAVO 2015-2017 — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="valle-de-bravo-2015-2017">
+            <img src="img/proyectos-ejecutados/valle de bravo 2015-2017/IMG_20170531_083945551_HDR.jpg" alt="Valle de Bravo – supervisi&oacute;n t&eacute;cnica" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Supervisi&oacute;n</span>
+              <p class="portfolio-card__location">Valle de Bravo 2015-2017</p>
+              <h3>Control t&eacute;cnico en campo</h3>
+              <p>Revisi&oacute;n continua de calidad, avance y especificaciones constructivas del proyecto.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="valle-de-bravo-2015-2017">
+            <img src="img/proyectos-ejecutados/valle de bravo 2015-2017/20160908_161603.jpg" alt="Valle de Bravo – estructura" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Estructura</span>
+              <p class="portfolio-card__location">Valle de Bravo 2015-2017</p>
+              <h3>Casa Valle de Bravo II</h3>
+              <p>Proyecto residencial con dise&ntilde;o integrado al entorno natural y c&aacute;lculo estructural especializado.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="valle-de-bravo-2015-2017">
+            <img src="img/proyectos-ejecutados/valle de bravo 2015-2017/IMG_20161020_165036096.jpg" alt="Valle de Bravo – acabados" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Acabados</span>
+              <p class="portfolio-card__location">Valle de Bravo 2015-2017</p>
+              <h3>Casa Valle de Bravo III</h3>
+              <p>Ejecuci&oacute;n de acabados especiales con materiales seleccionados para la zona lacustre.</p>
+            </div>
+          </article>
+
+          <!-- ══ VILLA VICTORIA 2023-2024 — 3 tarjetas ══ -->
+          <article class="portfolio-card hidden" data-category="villa-victoria-2023-2024">
+            <img src="img/proyectos-ejecutados/VILLA VICTORIA 2023-2024/ok5.jpeg" alt="Villa Victoria 2023-2024 – revisi&oacute;n estructural" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Ingenier&iacute;a</span>
+              <p class="portfolio-card__location">Villa Victoria 2023-2024</p>
+              <h3>Proyecto Villa Victoria</h3>
+              <p>Revisi&oacute;n estructural y coordinaci&oacute;n ejecutiva para la fase de obra en Villa Victoria.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="villa-victoria-2023-2024">
+            <img src="img/proyectos-ejecutados/VILLA VICTORIA 2023-2024/ok3.jpeg" alt="Villa Victoria 2023-2024 – construcci&oacute;n" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Construcci&oacute;n</span>
+              <p class="portfolio-card__location">Villa Victoria 2023-2024</p>
+              <h3>Villa Victoria II</h3>
+              <p>Ejecuci&oacute;n en campo con supervisi&oacute;n de avances y control de calidad en materiales.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card hidden" data-category="villa-victoria-2023-2024">
+            <img src="img/proyectos-ejecutados/VILLA VICTORIA 2023-2024/ok4.jpeg" alt="Villa Victoria 2023-2024 – dise&ntilde;o" loading="lazy">
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <span class="portfolio-card__tag">Dise&ntilde;o</span>
+              <p class="portfolio-card__location">Villa Victoria 2023-2024</p>
+              <h3>Villa Victoria III</h3>
+              <p>Desarrollo de proyecto arquitect&oacute;nico con volumetr&iacute;a definida y acabados de calidad.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-showcase__more reveal">
+          <button id="showMoreProjects" class="btn btn--outline">Ver m&aacute;s proyectos</button>
         </div>
       </div>
     </section>

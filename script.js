@@ -150,6 +150,80 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ============================================================
+     3.1 PROJECT FILTERING
+     ============================================================ */
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const portfolioCards = document.querySelectorAll('.portfolio-card[data-category]');
+  const showMoreButton = document.getElementById('showMoreProjects');
+
+  function setActiveFilter(filter) {
+    filterButtons.forEach(function (button) {
+      const isActive = button.dataset.filter === filter;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function applyProjectFilter(filter) {
+    portfolioCards.forEach(function (card) {
+      const category = card.dataset.category;
+      const isHiddenExtra = card.hasAttribute('data-hidden');
+      const isMatch = filter === 'all' || category === filter;
+
+      if (!isMatch) {
+        card.classList.add('hidden');
+        return;
+      }
+
+      if (filter === 'all' && isHiddenExtra) {
+        card.classList.add('hidden');
+        return;
+      }
+
+      card.classList.remove('hidden');
+    });
+
+    if (showMoreButton) {
+      showMoreButton.style.display = filter === 'all' ? 'inline-flex' : 'none';
+    }
+  }
+
+  filterButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const filter = this.dataset.filter || 'all';
+      setActiveFilter(filter);
+      applyProjectFilter(filter);
+    });
+  });
+
+  portfolioCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      const category = this.dataset.category;
+      if (!category) {
+        return;
+      }
+
+      setActiveFilter(category);
+      applyProjectFilter(category);
+
+      const filterSection = document.querySelector('.projects-showcase__controls');
+      if (filterSection) {
+        filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  if (showMoreButton) {
+    showMoreButton.addEventListener('click', function () {
+      portfolioCards.forEach(function (card) {
+        card.classList.remove('hidden');
+      });
+      this.style.display = 'none';
+      setActiveFilter('all');
+    });
+  }
+
+  /* ============================================================
      4. COUNTER ANIMATION
      ============================================================ */
   const counters = document.querySelectorAll('.counter-animate');
