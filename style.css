@@ -1320,6 +1320,16 @@ p {
   margin-bottom: var(--space-sm);
 }
 
+.project-gallery__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.project-gallery__actions .btn {
+  min-width: min(100%, 300px);
+}
+
 .project-gallery__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
